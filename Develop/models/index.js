@@ -15,7 +15,7 @@ Category.hasMany(Product, {
 });
 
 // Products belongToMany Tags (through ProductTag)
-// any foreign key declaration needed here?
+// any foreign key declaration needed here? Name for 'as' portion okay?
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
@@ -25,6 +25,7 @@ Product.belongsToMany(Tag, {
 });
 
 // Tags belongToMany Products (through ProductTag)
+// any foreign key declaration needed here? Name for 'as' portion okay?
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
