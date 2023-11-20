@@ -4,9 +4,9 @@ const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
-// Products belongsTo Category
-// 'Product has a foreign key called category_id, being referenced from the Category table'
+// Products belongsTo Category - 'Product has a foreign key called category_id, being referenced from the Category table'
 Product.belongsTo(Category, {
+  as: 'product_category',
   foreignKey: 'category_id',
 });
 // Categories have many Products
@@ -15,8 +15,7 @@ Category.hasMany(Product, {
   foreignKey: 'category_id',
 });
 
-// Products belongToMany Tags (through ProductTag)
-// any foreign key declaration needed here? Name for 'as' portion okay?
+// Products belongToMany Tags (through ProductTag) - any foreign key declaration needed here? Name for 'as' portion okay?
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
@@ -25,8 +24,7 @@ Product.belongsToMany(Tag, {
   as: 'product_tags'
 });
 
-// Tags belongToMany Products (through ProductTag)
-// any foreign key declaration needed here? Name for 'as' portion okay?
+// Tags belongToMany Products (through ProductTag) - any foreign key declaration needed here? Name for 'as' portion okay?
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
